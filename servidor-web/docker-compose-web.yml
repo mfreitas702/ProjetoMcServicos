@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+<<<<<<< HEAD
+  nginx:
+    image: nginx:latest
+    container_name: servidor_web
+    volumes:
+      - ./site:/usr/share/nginx/html
+    ports:
+      - "80:80"
+=======
+  samba:
+    image: dperson/samba
+    container_name: servidor_arquivos
+    environment:
+      - USER=marina
+      - PASS=123456
+      - SHARENAME=compartilhamento
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - ./dados:/mnt/data
+>>>>>>> 6acf77791783775c5baff67adf788d74df199b0a
+    networks:
+      - microservices-network
+    restart: always
+
+networks:
+  microservices-network:
+    driver: bridge
