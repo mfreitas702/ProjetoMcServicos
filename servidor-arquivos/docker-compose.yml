@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  samba:
+    image: dperson/samba
+    container_name: servidor_arquivos
+    environment:
+      - USER=marina
+      - PASS=123456
+      - SHARENAME=compartilhamento
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - ./dados:/mnt/data
+    restart: always
