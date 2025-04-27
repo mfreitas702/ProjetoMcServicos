@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  servidor-arquivos:
+    image: nginx:latest
+    container_name: servidor-arquivos
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dados:/usr/share/nginx/html
+    networks:
+      - rede-interna
+
+networks:
+  rede-interna:
+    driver: bridge
